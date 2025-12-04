@@ -21,7 +21,19 @@ export const getHost = ({ purpose }: GetHostParams = {}): string => {
     } else if (purpose === 'langgraph-gui') {
       return host.includes('localhost') ? 'http%3A%2F%2F127.0.0.1%3A8123' : `https://${host}`;
     } else {
-      return host.includes('localhost') ? 'http://localhost:8000' : `https://${host}`;
+      if (host.includes('localhost')) {
+        return 'http://localhost:8000';
+      }
+      
+      // Handle GitHub Codespaces port forwarding
+      if (host.includes('github.dev')) {
+        // If we are on port 3000, try to guess port 8000
+        if (host.includes('-3000')) {
+          return `https://${host.replace('-3000', '-8000')}`;
+        }
+      }
+      
+      return `https://${host}`;
     }
   }
   return '';
