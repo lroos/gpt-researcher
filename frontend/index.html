@@ -8,15 +8,17 @@
     <link rel="icon" href="./static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/ohm4hxr.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/site/styles.css" />
     <style>
         .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: auto;
+            height: 60px;
+            max-width: 250px;
+            border-radius: 0;
+            object-fit: contain;
         }
 
         .agent-name {
@@ -76,16 +78,13 @@
 <body>
     <!-- Navigation Buttons (moved from top bar) -->
     <div class="nav-buttons">
-        <div id="websocketPanelOpenBtn" class="top-websocket-button">
-            <i class="fas fa-network-wired"></i> Status
-        </div>
         <div id="historyPanelOpenBtn" class="top-history-button">
             <i class="fas fa-history"></i> History
         </div>
     </div>
 
-    <!-- WebSocket Status Panel -->
-    <div class="websocket-panel" id="websocketPanel">
+    <!-- WebSocket Status Panel (Hidden by default) -->
+    <div class="websocket-panel" id="websocketPanel" style="display: none;">
         <div class="websocket-panel-header">
             <h3><i class="fas fa-plug"></i> Connection Status</h3>
             <div class="websocket-panel-actions">
