@@ -74,12 +74,12 @@ export default function MobileLayout({
             <a href="/" className="flex items-center">
               <img
                 src="/img/gptr-logo.png"
-                alt="GPT Researcher"
+                alt="AI Research Assistant"
                 width={30}
                 height={30}
                 className="rounded-md mr-2"
               />
-              <span className="font-medium text-gray-200 text-sm">GPT Researcher</span>
+              <span className="font-medium text-gray-200 text-sm">AI Research Assistant</span>
             </a>
           </div>
           
@@ -295,52 +295,8 @@ export default function MobileLayout({
       
       {/* Footer */}
       <footer className="mt-auto py-3 px-4 text-center border-t border-gray-800/40 bg-gray-900/80 backdrop-blur-sm">
-        <div className="flex items-center justify-center gap-5 mb-3">
-          <a href="https://gptr.dev" target="_blank" className="text-gray-400 hover:text-teal-400 transition-colors">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="w-5 h-5"
-            >
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-          </a>
-          <a href="https://github.com/assafelovic/gpt-researcher" target="_blank" className="text-gray-400 hover:text-gray-300 transition-colors">
-            <img
-              src="/img/github.svg"
-              alt="GitHub"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </a>
-          <a href="https://discord.gg/QgZXvJAccX" target="_blank" className="text-gray-400 hover:text-gray-300 transition-colors">
-            <img
-              src="/img/discord.svg"
-              alt="Discord"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </a>
-          <a href="https://hub.docker.com/r/gptresearcher/gpt-researcher" target="_blank" className="text-gray-400 hover:text-gray-300 transition-colors">
-            <img
-              src="/img/docker.svg"
-              alt="Docker"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </a>
-        </div>
         <div className="text-xs text-gray-400">
-          © {new Date().getFullYear()} GPT Researcher. All rights reserved.
+          © {new Date().getFullYear()} AI Research Assistant. All rights reserved.
         </div>
       </footer>
       

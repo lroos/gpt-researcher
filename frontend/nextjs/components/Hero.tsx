@@ -143,7 +143,7 @@ const Hero: FC<THeroProps> = ({
             className="mt-6 text-center px-4"
           >
             <p className="text-gray-400 text-sm font-light">
-              GPT Researcher may make mistakes. Verify important information and check sources.
+              AI Research Assistant may make mistakes. Verify important information and check sources.
             </p>
           </motion.div>
         </motion.div>

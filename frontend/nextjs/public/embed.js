@@ -1,18 +1,18 @@
 (function () {
-    window.GPTResearcher = {
+    window.AIResearchAssistant = {
         init: function () {
-            const parentApiUrl = localStorage.getItem("GPTR_API_URL");
+            const parentApiUrl = localStorage.getItem("AI_RESEARCH_API_URL");
 
             // Create container
             const container = document.createElement("div");
-            container.id = "gpt-researcher-container";
+            container.id = "ai-research-container";
             container.style.width = "100%";
             container.style.height = "100vh";
             container.style.overflow = "hidden"; // Hide scrollbar
 
             // Create iframe
             const iframe = document.createElement("iframe");
-            iframe.src = "https://gptr.app" + (parentApiUrl ? "?GPTR_API_URL=" + parentApiUrl : "");
+            iframe.src = "https://research-assistant.dev" + (parentApiUrl ? "?AI_RESEARCH_API_URL=" + parentApiUrl : "");
             iframe.style.width = "100%";
             iframe.style.border = "none";
             iframe.style.height = "100%";
@@ -21,18 +21,18 @@
             // Add custom styles to hide scrollbars
             const style = document.createElement("style");
             style.textContent = `
-                #gpt-researcher-container {
+                #ai-research-container {
                     -ms-overflow-style: none;  /* IE and Edge */
                     scrollbar-width: none;     /* Firefox */
                 }
-                #gpt-researcher-container::-webkit-scrollbar {
+                #ai-research-container::-webkit-scrollbar {
                     display: none;             /* Chrome, Safari and Opera */
                 }
-                #gpt-researcher-container iframe {
+                #ai-research-container iframe {
                     -ms-overflow-style: none;
                     scrollbar-width: none;
                 }
-                #gpt-researcher-container iframe::-webkit-scrollbar {
+                #ai-research-container iframe::-webkit-scrollbar {
                     display: none;
                 }
             `;
@@ -55,7 +55,7 @@
 
         configure: function (options = {}) {
             if (options.height) {
-                const iframe = document.querySelector("#gpt-researcher-container iframe");
+                const iframe = document.querySelector("#ai-research-container iframe");
                 if (iframe) {
                     iframe.style.height = options.height + "px";
                 }
@@ -64,5 +64,5 @@
     };
 
     // Initialize when script loads
-    window.GPTResearcher.init();
+    window.AIResearchAssistant.init();
 })();

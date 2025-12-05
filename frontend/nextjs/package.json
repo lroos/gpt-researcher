@@ -1,6 +1,6 @@
 {
-  "name": "gpt-researcher-ui",
-  "description": "GPT Researcher frontend as a React component",
+  "name": "ai-research-assistant-ui",
+  "description": "AI Research Assistant frontend as a React component",
   "version": "0.1.74",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -85,19 +85,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/assafelovic/gpt-researcher.git"
+    "url": "git+https://github.com/your-org/ai-research-assistant.git"
   },
   "keywords": [
-    "gpt",
-    "researcher",
     "ai",
+    "research",
+    "assistant",
     "react",
     "nextjs"
   ],
-  "author": "GPT Researcher Team",
+  "author": "AI Research Assistant Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/assafelovic/gpt-researcher/issues"
+    "url": "https://github.com/your-org/ai-research-assistant/issues"
   },
-  "homepage": "https://github.com/assafelovic/gpt-researcher#readme"
+  "homepage": "https://github.com/your-org/ai-research-assistant#readme"
 }
