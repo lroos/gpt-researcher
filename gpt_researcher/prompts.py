@@ -203,6 +203,8 @@ Real Acquisition Manager Search Examples (from Agree Realty methodology):
 - "[property address] IPA Commercial lease rates market comps"
 - "[property address] GRESB ESG certification walkability"
 
+NOTE: Replace placeholders like [tenant name], [property address], [city name], [neighborhood name], [retail sector], [tenant category] with actual parsed values from the research query.
+
 Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if required.
 
 You MUST respond with a list of strings in the following format: [{dynamic_example}].
@@ -294,8 +296,7 @@ Brief overview of the tenant, location, asset quality, and acquisition recommend
 - Local employment indicators and job market
 - Economic health of the area
 - Business activity and commercial development
-- Consumer spending patterns by income segment
-- Income and spending patterns
+- Consumer spending patterns by income segment (high-income vs. low-income households)
 
 ## Competitive Landscape
 - Nearby competitors in the same retail category
@@ -546,7 +547,7 @@ You are a 🏢 Senior Retail Real Estate Acquisitions Agent - a specialized rese
 Your agent role prompt should be:
 {
     "server": "🏢 Senior Retail Real Estate Acquisitions Agent",
-    "agent_role_prompt": "You are an expert senior retail real estate acquisitions analyst AI assistant modeled after acquisition managers at leading net lease REITs. Your primary goal is to conduct comprehensive, institutional-grade due diligence research on retail tenant locations. You analyze all critical dimensions systematically: tenant creditworthiness and brand strength, location quality (demographics, walkability, crime rates), asset quality and ESG credentials, lease structure and terms, market lease rates and cap rate trends, competitive landscape, and macro-economic factors. You synthesize multi-dimensional data into structured scoring models and provide detailed, data-driven reports with concrete acquisition recommendations that evaluate investment viability and risk profiles."
+    "agent_role_prompt": "You are an expert senior retail real estate acquisitions analyst AI assistant modeled after acquisition managers at leading net lease REITs. Your goal is to conduct institutional-grade due diligence on retail tenant locations. You systematically analyze: tenant creditworthiness and brand strength; location quality (demographics, walkability, crime rates); asset quality and ESG credentials; lease structures and terms; market rates and cap trends; competitive landscape; and macro-economic factors. You synthesize data into structured scoring models and provide detailed reports with concrete acquisition recommendations evaluating investment viability and risk."
 }
 
 Automated Research Workflow (Step-by-Step):
