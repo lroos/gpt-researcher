@@ -145,21 +145,55 @@ Please conduct thorough research and provide your findings. Use the tools strate
             task = question
 
         context_prompt = f"""
-You are a seasoned research assistant tasked with generating search queries to find relevant information for the following task: "{task}".
+You are a specialized retail real estate acquisitions research assistant. Your task is to generate comprehensive search queries for: "{task}".
+
+The query should specify a tenant/store name and an address/city/state. Parse this information and generate search queries that cover ALL critical dimensions for acquisition analysis:
+
 Context: {context}
 
 Use this context to inform and refine your search queries. The context provides real-time web information that can help you generate more specific and relevant queries. Consider any current events, recent developments, or specific details mentioned in the context that could enhance the search queries.
-""" if context else ""
+""" if context else f"""
+You are a specialized retail real estate acquisitions research assistant generating search queries for: "{task}".
+
+The query should specify a tenant/store name and an address/city/state. Parse this information and create queries covering ALL dimensions.
+"""
 
         dynamic_example = ", ".join([f'"query {i+1}"' for i in range(max_iterations)])
 
-        return f"""Write {max_iterations} google search queries to search online that form an objective opinion from the following task: "{task}"
+        return f"""Generate {max_iterations} strategic search queries for retail real estate acquisition due diligence on: "{task}"
+
+{context_prompt}
+
+CRITICAL: Parse the tenant/store name and location (address/city/state) from the query, then generate searches covering these dimensions:
+1. NEIGHBORHOOD: Demographics, residential development, population trends, neighborhood characteristics
+2. TENANT/COMPANY: Credit ratings, CEO changes, financial performance, store openings/closures, restructuring
+3. ECONOMIC: Local employment, economic indicators, business activity, market conditions
+4. SECTOR: Industry trends, retail category performance, sector-specific news
+5. COMPETITION: Nearby competitors, market saturation, similar retailers in area
+6. DEVELOPMENT: New construction, zoning changes, multifamily projects, grand openings
+
+Example Search Query Patterns:
+- "[tenant name] credit rating [current year]"
+- "[tenant name] store closures CEO change"
+- "[city/neighborhood name] demographics household income"
+- "[city/neighborhood name] new residential development multifamily"
+- "[city/neighborhood name] economic indicators employment"
+- "[retail sector] trends [city/state]"
+- "[tenant category] competitors [city/neighborhood]"
+- "[city/neighborhood name] zoning changes new development"
+
+Real Acquisition Manager Search Examples:
+- "Kroger credit rating delivery centers closure"
+- "CarMax CEO change financial performance"
+- "PNC Bank branch expansion strategy"
+- "Publix growth strategy Florida demographics"
+- "[city name] new multifamily development breaking ground"
+- "[neighborhood name] residential development permits"
 
 Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if required.
 
-{context_prompt}
-You must respond with a list of strings in the following format: [{dynamic_example}].
-The response should contain ONLY the list.
+You MUST respond with a list of strings in the following format: [{dynamic_example}].
+The response should contain ONLY the list of search query strings, nothing else.
 """
 
     @staticmethod
@@ -197,26 +231,78 @@ You MUST write all used source document names at the end of the report as refere
         return f"""
 Information: "{context}"
 ---
-Using the above information, answer the following query or task: "{question}" in a detailed report --
-The report should focus on the answer to the query, should be well structured, informative,
-in-depth, and comprehensive, with facts and numbers if available and at least {total_words} words.
-You should strive to write the report as long as you can using all relevant and necessary information provided.
+You are a retail real estate acquisitions analyst. Using the above information, generate a comprehensive acquisition due diligence report for: "{question}"
 
-Please follow all of the following guidelines in your report:
-- You MUST determine your own concrete and valid opinion based on the given information. Do NOT defer to general and meaningless conclusions.
+The report should provide a thorough analysis for evaluating this retail location acquisition opportunity. It must be well-structured, data-driven, and comprehensive, with at least {total_words} words.
+
+REQUIRED REPORT STRUCTURE - Organize findings into these key sections:
+
+## Executive Summary
+Brief overview of the tenant, location, and acquisition recommendation
+
+## Tenant Analysis
+- Company financial health and credit ratings
+- Recent corporate developments (CEO changes, restructuring, expansions/closures)
+- Store performance and growth strategy
+- Credit rating activity and financial stability indicators
+
+## Neighborhood Analysis (CRITICAL - Highest Priority)
+- Detailed demographics: population, household income, age distribution
+- Residential development activity: new multifamily projects, breaking ground, permits
+- Neighborhood characteristics and quality indicators
+- Population growth trends and projections
+
+## Economic Analysis
+- Local employment indicators and job market
+- Economic health of the area
+- Business activity and commercial development
+- Income and spending patterns
+
+## Competitive Landscape
+- Nearby competitors in the same retail category
+- Market saturation analysis
+- Competitive advantages/disadvantages of the location
+- Similar tenants in the area
+
+## Sector & Industry Trends
+- Retail sector performance and trends
+- Category-specific dynamics
+- Industry challenges and opportunities
+- Relevant sector news affecting the tenant type
+
+## Development & Zoning
+- New construction and development projects
+- Zoning changes or planning updates
+- Infrastructure improvements
+- Grand openings of complementary businesses
+
+## Risk Assessment
+- Key risks identified from the research
+- Mitigation strategies
+- Red flags or concerns
+
+## Acquisition Recommendation
+- Clear recommendation (proceed/reconsider/decline)
+- Key supporting factors
+- Conditions or caveats
+
+Please follow all of the following guidelines:
+- You MUST determine a concrete acquisition recommendation based on the data. Do NOT provide vague conclusions.
 - You MUST write the report with markdown syntax and {report_format} format.
 - Structure your report with clear markdown headers: use # for the main title, ## for major sections, and ### for subsections.
-- Use markdown tables when presenting structured data or comparisons to enhance readability.
-- You MUST prioritize the relevance, reliability, and significance of the sources you use. Choose trusted sources over less reliable ones.
-- You must also prioritize new articles over older articles if the source can be trusted.
-- You MUST NOT include a table of contents, but DO include proper markdown headers (# ## ###) to structure your report clearly.
-- Use in-text citation references in {report_format} format and make it with markdown hyperlink placed at the end of the sentence or paragraph that references them like this: ([in-text citation](url)).
-- Don't forget to add a reference list at the end of the report in {report_format} format and full url links without hyperlinks.
+- Use markdown tables when presenting structured data, demographics, or comparisons to enhance readability.
+- PRIORITIZE neighborhood demographics and development activity - this is critical for acquisition decisions.
+- You MUST prioritize the relevance, reliability, and significance of the sources. Choose trusted sources over less reliable ones.
+- Prioritize recent articles and data over older sources when available.
+- You MUST NOT include a table of contents, but DO include proper markdown headers (# ## ###).
+- Use in-text citation references in {report_format} format with markdown hyperlinks: ([in-text citation](url)).
+- Include specific data points, numbers, statistics, and dates whenever available.
+- Don't forget to add a reference list at the end of the report in {report_format} format.
 - {reference_prompt}
 - {tone_prompt}
 
 You MUST write the report in the following language: {language}.
-Please do your best, this is very important to my career.
+This acquisition analysis is critical for investment decisions.
 Assume that the current date is {date.today()}.
 """
 
@@ -394,29 +480,33 @@ Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')}.
     @staticmethod
     def auto_agent_instructions():
         return """
-This task involves researching a given topic, regardless of its complexity or the availability of a definitive answer. The research is conducted by a specific server, defined by its type and role, with each server requiring distinct instructions.
-Agent
-The server is determined by the field of the topic and the specific name of the server that could be utilized to research the topic provided. Agents are categorized by their area of expertise, and each server type is associated with a corresponding emoji.
+This task involves researching retail tenant locations for real estate acquisition analysis. The research query will always specify a tenant/store name and an address/city/state. Your role is to conduct comprehensive due diligence research as a specialized retail real estate acquisitions analyst.
 
-examples:
-task: "should I invest in apple stocks?"
-response:
+Agent
+You are a 🏢 Retail Real Estate Acquisitions Agent - a specialized research assistant focused on evaluating retail tenant locations for acquisition opportunities.
+
+Your agent role prompt should be:
 {
-    "server": "💰 Finance Agent",
-    "agent_role_prompt: "You are a seasoned finance analyst AI assistant. Your primary goal is to compose comprehensive, astute, impartial, and methodically arranged financial reports based on provided data and trends."
+    "server": "🏢 Retail Real Estate Acquisitions Agent",
+    "agent_role_prompt": "You are an expert retail real estate acquisitions analyst AI assistant. Your primary goal is to conduct comprehensive due diligence research on retail tenant locations, analyzing all critical dimensions: neighborhood characteristics, area demographics, local economic conditions, sector trends, financial performance indicators, and competitive landscape. You provide detailed, data-driven reports that evaluate the viability and risk profile of retail real estate acquisition opportunities."
 }
-task: "could reselling sneakers become profitable?"
-response:
-{
-    "server":  "📈 Business Analyst Agent",
-    "agent_role_prompt": "You are an experienced AI business analyst assistant. Your main objective is to produce comprehensive, insightful, impartial, and systematically structured business reports based on provided business data, market trends, and strategic analysis."
-}
-task: "what are the most interesting sites in Tel Aviv?"
-response:
-{
-    "server":  "🌍 Travel Agent",
-    "agent_role_prompt": "You are a world-travelled AI tour guide assistant. Your main purpose is to draft engaging, insightful, unbiased, and well-structured travel reports on given locations, including history, attractions, and cultural insights."
-}
+
+Research Focus Areas:
+- Tenant/Company Analysis: Credit ratings, financial health, CEO changes, restructuring, store openings/closures
+- Neighborhood Analysis: Local demographics, residential development, population growth, household income
+- Economic Analysis: Employment rates, economic indicators, local business activity
+- Competitive Analysis: Nearby competitors, market saturation, similar retailers in area
+- Development Activity: New construction, zoning changes, multifamily developments, grand openings
+- Sector Trends: Industry-specific news and trends affecting the retail category
+
+Key Information Sources:
+- Company news and announcements
+- Credit rating agencies
+- Local economic development reports
+- Demographic databases
+- Real estate development news
+- Industry publications (RetailDive, CStoreDive, GroceryDive)
+- Zoning and planning department records
 """
 
     @staticmethod
