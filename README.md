@@ -1,15 +1,15 @@
 # 🕵️‍♂️ Sherlock Holmes - Retail Real Estate Market Research Agent
 
 > **Hackathon Project**: Deep Research Agent for Real Estate Market Analysis  
-> **Team**: Sherlock Holmes  
-> **Date**: December 5th  
+> **Based on**: [GPT Researcher](https://github.com/assafelovic/gpt-researcher) by Assaf Elovic  
+> **Contributors**: Mari Bredenkamp, Llewellyn Roos, Ryan Black, Saleigh Warner
 
-## 👥 Team Members
-- Mari Bredenkamp
-- Llewellyn Roos
-- Ryan Black
-- Saleigh Warner
-- GitHub Copilot (honorary)
+## 📚 Attribution
+
+This project is a derivative work based on the original [GPT Researcher](https://github.com/assafelovic/gpt-researcher) framework created by Assaf Elovic and contributors. This implementation serves as an academic exercise exploring domain-specific applications of autonomous research agents in the retail real estate sector.
+
+**Original Project**: https://github.com/assafelovic/gpt-researcher  
+**License**: Apache 2.0 License (see LICENSE file)
 
 ---
 
@@ -75,3 +75,9 @@ This hackathon project is a proof-of-concept. The roadmap for integrating this i
 
 ---
 *Built with ❤️ by Team Sherlock Holmes for the Deep Research Hackathon.*
+
+## 📄 License
+
+This project maintains the Apache 2.0 License from the original GPT Researcher project. See the LICENSE file for details.
+
+**Acknowledgments**: Special thanks to Assaf Elovic and the GPT Researcher community for creating the foundational framework that made this academic exploration possible.

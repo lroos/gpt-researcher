@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ chatBoxSettings, setChatBoxSettings }) 
       <div className="container flex flex-col sm:flex-row min-h-[60px] sm:min-h-[72px] mt-2 items-center justify-center border-t border-gray-700/30 px-4 pb-3 pt-4 sm:py-5 lg:px-0 bg-transparent backdrop-blur-sm gap-3 sm:gap-0">
         <Modal setChatBoxSettings={setChatBoxSettings} chatBoxSettings={chatBoxSettings} />
         <div className="text-xs sm:text-sm text-gray-100 text-center order-1">
-            © {new Date().getFullYear()} AI Research Assistant. All rights reserved.
+            © {new Date().getFullYear()} GPT Researcher. All rights reserved.
         </div>
       </div>
     </>
