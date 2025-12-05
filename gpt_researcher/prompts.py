@@ -162,6 +162,8 @@ The query should specify a tenant/store name and an address/city/state. Parse th
 
         return f"""Generate {max_iterations} strategic search queries for retail real estate acquisition due diligence on: "{task}"
 
+{context_prompt}
+
 CRITICAL: Parse the tenant/store name and location (address/city/state) from the query, then generate searches covering these dimensions:
 1. NEIGHBORHOOD: Demographics, residential development, population trends, neighborhood characteristics
 2. TENANT/COMPANY: Credit ratings, CEO changes, financial performance, store openings/closures, restructuring
