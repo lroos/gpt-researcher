@@ -1,7 +1,7 @@
 {
-  "name": "GPT Researcher",
-  "short_name": "GPT Research",
-  "description": "AI research assistant that helps you find information and answer questions.",
+  "name": "AI Research Assistant",
+  "short_name": "AI Research",
+  "description": "AI-powered research assistant that helps you find information and answer questions.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
