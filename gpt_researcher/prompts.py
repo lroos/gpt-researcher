@@ -173,7 +173,7 @@ CRITICAL: Parse the tenant/store name and location (address/city/state) from the
 6. DEVELOPMENT: New construction, zoning changes, multifamily projects, grand openings
 
 Example Search Query Patterns:
-- "[tenant name] credit rating 2024"
+- "[tenant name] credit rating [current year]"
 - "[tenant name] store closures CEO change"
 - "[city/neighborhood name] demographics household income"
 - "[city/neighborhood name] new residential development multifamily"
