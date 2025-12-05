@@ -44,7 +44,15 @@ class CustomLogsHandler:
         """Store log data and send to websocket"""
         # Send to websocket for real-time display
         if self.websocket:
-            await self.websocket.send_json(data)
+            try:
+                # Try send_json first (for direct FastAPI websockets)
+                if hasattr(self.websocket, 'send_json'):
+                    await self.websocket.send_json(data)
+                # Fall back to send_text with JSON serialization (for WebSocketManager)
+                elif hasattr(self.websocket, 'send_text'):
+                    await self.websocket.send_text(json.dumps(data))
+            except Exception as e:
+                logger.error(f"Error sending websocket message: {e}")
             
         # Read current log file
         with open(self.log_file, 'r') as f:
