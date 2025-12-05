@@ -116,7 +116,7 @@ const Hero: FC<THeroProps> = ({
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-white mb-8 sm:mb-10 md:mb-12 px-4"
         >
-          What would you like to research next?
+          Enter concept name and address to research
         </motion.h1>
 
         {/* Input section with enhanced styling */}
@@ -266,18 +266,8 @@ type suggestionType = {
 const suggestions: suggestionType[] = [
   {
     id: 1,
-    name: "Stock analysis on ",
+    name: "OLIVE GARDEN - 86 YORKTOWN SHOPPING CENTER, LOMBARD, IL",
     icon: "/img/stock2.svg",
-  },
-  {
-    id: 2,
-    name: "Help me plan an adventure to ",
-    icon: "/img/hiker.svg",
-  },
-  {
-    id: 3,
-    name: "What are the latest news on ",
-    icon: "/img/news.svg",
   },
 ];
 
