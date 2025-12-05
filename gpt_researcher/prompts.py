@@ -191,7 +191,7 @@ Example Search Query Patterns:
 - "[city/state] cap rate trends interest rates [current year]"
 - "[city/neighborhood name] zoning changes infrastructure improvements"
 
-Real Acquisition Manager Search Examples (from Agree Realty methodology):
+Real Acquisition Manager Search Examples (from institutional net lease REIT methodology):
 - "Kroger credit rating delivery centers closure investment grade"
 - "CarMax CEO change financial performance lease renewal"
 - "PNC Bank branch expansion strategy NNN lease"

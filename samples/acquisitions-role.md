@@ -1,8 +1,8 @@
-# High-Fidelity Research Process for Retail Asset Acquisition at Agree Realty Corp: A Senior Acquisition Manager’s Approach
+# High-Fidelity Research Process for Retail Asset Acquisition at a Net Lease REIT: A Senior Acquisition Manager's Approach
 
 ## Introduction
 
-In the competitive and dynamic world of net lease retail real estate, the role of a Senior Acquisition Manager at Agree Realty Corp is pivotal. Their mandate is not just to identify and acquire retail assets, but to ensure these assets are anchored by stable, outperforming tenants and are situated at addresses that command the most favorable rental terms. This report outlines, in detail, the optimal research process such a manager would follow, leveraging all public news sources and market intelligence. The goal is to specify a high-fidelity, automatable workflow that maximizes acquisition success and portfolio performance.
+In the competitive and dynamic world of net lease retail real estate, the role of a Senior Acquisition Manager at a net lease REIT is pivotal. Their mandate is not just to identify and acquire retail assets, but to ensure these assets are anchored by stable, outperforming tenants and are situated at addresses that command the most favorable rental terms. This report outlines, in detail, the optimal research process such a manager would follow, leveraging all public news sources and market intelligence. The goal is to specify a high-fidelity, automatable workflow that maximizes acquisition success and portfolio performance.
 
 ## Defining the Research Objective
 
@@ -155,11 +155,11 @@ The manager synthesizes findings into a structured scoring model, weighting:
 
 A detailed report is produced, summarizing:
 
-- Tenant’s financial health and brand trajectory
+- Tenant's financial health and brand trajectory
 - Local market lease comps and cap rate context
-- Asset’s physical and ESG credentials
+- Asset's physical and ESG credentials
 - Risks and mitigants
-- Projected returns and alignment with Agree Realty’s portfolio strategy
+- Projected returns and alignment with the REIT's portfolio strategy
 
 ## Step 5: Automation Specification for Research Agent
 
@@ -193,11 +193,11 @@ A detailed report is produced, summarizing:
 
 ## Conclusion: Concrete Opinion and Strategic Imperatives
 
-Based on the synthesis of current market data and best practices, a senior acquisition manager at Agree Realty Corp must adopt a rigorous, data-driven, and multi-source approach to research. The most successful acquisitions in 2025 will be those that:
+Based on the synthesis of current market data and best practices, a senior acquisition manager at a net lease REIT must adopt a rigorous, data-driven, and multi-source approach to research. The most successful acquisitions in 2025 will be those that:
 
 - Anchor assets with top-performing, creditworthy tenants in growth sectors (e.g., health and wellness, experiential retail)
 - Prioritize locations with strong demographic tailwinds, high walkability, and community engagement
 - Secure assets with robust ESG credentials and favorable lease structures (NNN, long term, escalations)
 - Continuously monitor macro-economic shifts, particularly interest rates and consumer sentiment, to adjust underwriting and risk models
 
-Automation of this process is feasible and highly desirable, provided the agent is programmed to prioritize recent, reliable sources and synthesize multi-dimensional data into actionable insights. This will ensure Agree Realty Corp continues to outperform in the evolving net lease retail landscape.
+Automation of this process is feasible and highly desirable, provided the agent is programmed to prioritize recent, reliable sources and synthesize multi-dimensional data into actionable insights. This will ensure the REIT continues to outperform in the evolving net lease retail landscape.
