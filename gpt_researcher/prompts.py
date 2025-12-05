@@ -169,7 +169,7 @@ CRITICAL: Parse the tenant/store name and location (address/city/state) from the
 2. TENANT/COMPANY: Credit ratings, CEO changes, financial performance, store openings/closures, restructuring
 3. ECONOMIC: Local employment, economic indicators, business activity, market conditions
 4. SECTOR: Industry trends, retail category performance, sector-specific news
-5. COMPETITION: Nearby competitors, market saturation, similar retailers in area  
+5. COMPETITION: Nearby competitors, market saturation, similar retailers in area
 6. DEVELOPMENT: New construction, zoning changes, multifamily projects, grand openings
 
 Example Search Query Patterns:
