@@ -165,30 +165,43 @@ The query should specify a tenant/store name and an address/city/state. Parse th
 {context_prompt}
 
 CRITICAL: Parse the tenant/store name and location (address/city/state) from the query, then generate searches covering these dimensions:
-1. NEIGHBORHOOD: Demographics, residential development, population trends, neighborhood characteristics
-2. TENANT/COMPANY: Credit ratings, CEO changes, financial performance, store openings/closures, restructuring
-3. ECONOMIC: Local employment, economic indicators, business activity, market conditions
-4. SECTOR: Industry trends, retail category performance, sector-specific news
-5. COMPETITION: Nearby competitors, market saturation, similar retailers in area
-6. DEVELOPMENT: New construction, zoning changes, multifamily projects, grand openings
+1. TENANT SCREENING: Credit ratings, brand strength, financial performance, store openings/closures, expansion/contraction plans, lease renewal rates, CEO changes, restructuring
+2. LEASE ANALYSIS: Lease structure (NNN, FSG, Modified Gross), lease terms, rent roll, escalation clauses, expense pass-throughs
+3. LOCATION QUALITY: Demographics, household income, retail demand drivers, foot traffic, walkability scores, livability scores, crime rates
+4. MARKET BENCHMARK: Lease comps, cap rates, occupancy rates, market lease rates, cap rate trends
+5. ASSET QUALITY: Building class (A/B/C), age and condition, ESG certifications (LEED, WELL, GRESB)
+6. ECONOMIC ANALYSIS: Local employment, economic indicators, business activity, consumer spending patterns
+7. COMPETITIVE LANDSCAPE: Nearby competitors, market saturation, similar retailers in area
+8. DEVELOPMENT ACTIVITY: New construction, zoning changes, multifamily projects, grand openings, residential development permits
+9. MACRO TRENDS: Interest rates, cap rate trends, retail sector health, consumer behavior trends
 
 Example Search Query Patterns:
 - "[tenant name] credit rating [current year]"
-- "[tenant name] store closures CEO change"
-- "[city/neighborhood name] demographics household income"
-- "[city/neighborhood name] new residential development multifamily"
-- "[city/neighborhood name] economic indicators employment"
-- "[retail sector] trends [city/state]"
+- "[tenant name] lease renewal rate investment grade"
+- "[tenant name] NNN lease structure expansion"
+- "[tenant name] store closures CEO change financial performance"
+- "[property address] walkability score crime rate"
+- "[city/neighborhood name] demographics household income livability"
+- "[city/neighborhood name] retail lease comps cap rates [current year]"
+- "[city/neighborhood name] new residential development multifamily breaking ground"
+- "[city/neighborhood name] economic indicators employment consumer spending"
+- "[retail sector] trends consumer behavior [current year]"
 - "[tenant category] competitors [city/neighborhood]"
-- "[city/neighborhood name] zoning changes new development"
+- "[property address] ESG certification LEED WELL GRESB"
+- "[city/state] cap rate trends interest rates [current year]"
+- "[city/neighborhood name] zoning changes infrastructure improvements"
 
-Real Acquisition Manager Search Examples:
-- "Kroger credit rating delivery centers closure"
-- "CarMax CEO change financial performance"
-- "PNC Bank branch expansion strategy"
-- "Publix growth strategy Florida demographics"
-- "[city name] new multifamily development breaking ground"
-- "[neighborhood name] residential development permits"
+Real Acquisition Manager Search Examples (from Agree Realty methodology):
+- "Kroger credit rating delivery centers closure investment grade"
+- "CarMax CEO change financial performance lease renewal"
+- "PNC Bank branch expansion strategy NNN lease"
+- "Publix growth strategy Florida demographics household penetration"
+- "[city name] new multifamily development breaking ground permits"
+- "[neighborhood name] residential development demographics income trends"
+- "[property address] Boulder Group net lease cap rates"
+- "[tenant name] Numerator consumer trends brand performance"
+- "[property address] IPA Commercial lease rates market comps"
+- "[property address] GRESB ESG certification walkability"
 
 Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if required.
 
@@ -231,31 +244,57 @@ You MUST write all used source document names at the end of the report as refere
         return f"""
 Information: "{context}"
 ---
-You are a retail real estate acquisitions analyst. Using the above information, generate a comprehensive acquisition due diligence report for: "{question}"
+You are a senior retail real estate acquisitions analyst following the rigorous methodology of a net lease REIT acquisition manager. Using the above information, generate a comprehensive acquisition due diligence report for: "{question}"
 
 The report should provide a thorough analysis for evaluating this retail location acquisition opportunity. It must be well-structured, data-driven, and comprehensive, with at least {total_words} words.
 
 REQUIRED REPORT STRUCTURE - Organize findings into these key sections:
 
 ## Executive Summary
-Brief overview of the tenant, location, and acquisition recommendation
+Brief overview of the tenant, location, asset quality, and acquisition recommendation with key highlights
 
 ## Tenant Analysis
-- Company financial health and credit ratings
+- Company financial health and credit ratings (investment grade preferred)
+- Brand strength and consumer trends (top-performing brands, household penetration)
 - Recent corporate developments (CEO changes, restructuring, expansions/closures)
 - Store performance and growth strategy
-- Credit rating activity and financial stability indicators
+- Lease renewal rates and tenant stability indicators
+- Historical performance and growth trajectory
 
-## Neighborhood Analysis (CRITICAL - Highest Priority)
+## Location Quality and Market Analysis (CRITICAL - Highest Priority)
 - Detailed demographics: population, household income, age distribution
+- Walkability and livability scores (community engagement factors)
+- Crime rates and neighborhood safety
+- Retail demand drivers: foot traffic, nearby anchors, accessibility
+- Market lease rates and comparisons (cite IPA Commercial, Boulder Group when available)
+- Cap rate trends and market context (note recent movements)
+- Competitive positioning: visibility, accessibility, parking
 - Residential development activity: new multifamily projects, breaking ground, permits
 - Neighborhood characteristics and quality indicators
 - Population growth trends and projections
+
+## Lease Structure and Terms
+- Lease type: NNN (Net Lease), FSG (Full Service Gross), or Modified Gross
+- Lease duration and renewal options
+- Rent escalations and terms
+- Expense pass-throughs
+- Below-market rent potential for upside
+- Comparison to market lease comps
+
+## Asset Quality and ESG Considerations
+- Building class (A, B, or C)
+- Age and condition of the property
+- Physical obsolescence or recent renovations
+- ESG certifications: LEED, WELL, or GRESB ratings
+- Energy efficiency and sustainability features
+- ESG lease clauses (energy, water, waste management)
+- Long-term asset value enhancement potential
 
 ## Economic Analysis
 - Local employment indicators and job market
 - Economic health of the area
 - Business activity and commercial development
+- Consumer spending patterns by income segment
 - Income and spending patterns
 
 ## Competitive Landscape
@@ -265,8 +304,9 @@ Brief overview of the tenant, location, and acquisition recommendation
 - Similar tenants in the area
 
 ## Sector & Industry Trends
-- Retail sector performance and trends
+- Retail sector performance and trends (cite Numerator, industry publications when available)
 - Category-specific dynamics
+- Consumer behavior trends (experiential, community-based retail)
 - Industry challenges and opportunities
 - Relevant sector news affecting the tenant type
 
@@ -276,24 +316,42 @@ Brief overview of the tenant, location, and acquisition recommendation
 - Infrastructure improvements
 - Grand openings of complementary businesses
 
+## Macro-Economic and Market Risk Assessment
+- Interest rate environment and cap rate impacts
+- Federal Reserve policy trends
+- Consumer sentiment and retail sector health
+- High-income vs. low-income segment performance
+- Supply/demand balance in the market
+
 ## Risk Assessment
 - Key risks identified from the research
 - Mitigation strategies
 - Red flags or concerns
+- Demographic and economic headwinds
+
+## Scoring and Investment Analysis
+Present a weighted scoring breakdown (use table format):
+- Tenant credit and performance (30% weight)
+- Location quality and market dynamics (30% weight)
+- Asset quality and ESG compliance (20% weight)
+- Lease structure and terms (10% weight)
+- Macro-economic risk (10% weight)
 
 ## Acquisition Recommendation
 - Clear recommendation (proceed/reconsider/decline)
-- Key supporting factors
+- Key supporting factors based on scoring
+- Projected returns and alignment with portfolio strategy
 - Conditions or caveats
+- Risk mitigation strategies for proceeding
 
 Please follow all of the following guidelines:
 - You MUST determine a concrete acquisition recommendation based on the data. Do NOT provide vague conclusions.
 - You MUST write the report with markdown syntax and {report_format} format.
 - Structure your report with clear markdown headers: use # for the main title, ## for major sections, and ### for subsections.
-- Use markdown tables when presenting structured data, demographics, or comparisons to enhance readability.
-- PRIORITIZE neighborhood demographics and development activity - this is critical for acquisition decisions.
-- You MUST prioritize the relevance, reliability, and significance of the sources. Choose trusted sources over less reliable ones.
-- Prioritize recent articles and data over older sources when available.
+- Use markdown tables when presenting structured data, demographics, comparisons, or scoring to enhance readability.
+- PRIORITIZE location quality (demographics, walkability, development activity) and tenant creditworthiness - these are critical for acquisition decisions.
+- You MUST prioritize the relevance, reliability, and significance of the sources. Trusted sources include: Boulder Group, IPA Commercial, GRESB, Numerator, SEC filings, credit rating agencies.
+- Prioritize recent articles and data from the past 12 months when available.
 - You MUST NOT include a table of contents, but DO include proper markdown headers (# ## ###).
 - Use in-text citation references in {report_format} format with markdown hyperlinks: ([in-text citation](url)).
 - Include specific data points, numbers, statistics, and dates whenever available.
@@ -302,7 +360,7 @@ Please follow all of the following guidelines:
 - {tone_prompt}
 
 You MUST write the report in the following language: {language}.
-This acquisition analysis is critical for investment decisions.
+This acquisition analysis is critical for investment decisions and follows best practices for net lease retail real estate due diligence.
 Assume that the current date is {date.today()}.
 """
 
@@ -480,33 +538,77 @@ Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')}.
     @staticmethod
     def auto_agent_instructions():
         return """
-This task involves researching retail tenant locations for real estate acquisition analysis. The research query will always specify a tenant/store name and an address/city/state. Your role is to conduct comprehensive due diligence research as a specialized retail real estate acquisitions analyst.
+This task involves researching retail tenant locations for real estate acquisition analysis following a high-fidelity, institutional-grade methodology. The research query will always specify a tenant/store name and an address/city/state. Your role is to conduct comprehensive due diligence research as a senior retail real estate acquisitions analyst at a net lease REIT.
 
 Agent
-You are a 🏢 Retail Real Estate Acquisitions Agent - a specialized research assistant focused on evaluating retail tenant locations for acquisition opportunities.
+You are a 🏢 Senior Retail Real Estate Acquisitions Agent - a specialized research assistant following the rigorous methodology used by top-performing net lease REITs to evaluate retail tenant locations for acquisition opportunities.
 
 Your agent role prompt should be:
 {
-    "server": "🏢 Retail Real Estate Acquisitions Agent",
-    "agent_role_prompt": "You are an expert retail real estate acquisitions analyst AI assistant. Your primary goal is to conduct comprehensive due diligence research on retail tenant locations, analyzing all critical dimensions: neighborhood characteristics, area demographics, local economic conditions, sector trends, financial performance indicators, and competitive landscape. You provide detailed, data-driven reports that evaluate the viability and risk profile of retail real estate acquisition opportunities."
+    "server": "🏢 Senior Retail Real Estate Acquisitions Agent",
+    "agent_role_prompt": "You are an expert senior retail real estate acquisitions analyst AI assistant modeled after acquisition managers at leading net lease REITs. Your primary goal is to conduct comprehensive, institutional-grade due diligence research on retail tenant locations. You analyze all critical dimensions systematically: tenant creditworthiness and brand strength, location quality (demographics, walkability, crime rates), asset quality and ESG credentials, lease structure and terms, market lease rates and cap rate trends, competitive landscape, and macro-economic factors. You synthesize multi-dimensional data into structured scoring models and provide detailed, data-driven reports with concrete acquisition recommendations that evaluate investment viability and risk profiles."
 }
 
-Research Focus Areas:
-- Tenant/Company Analysis: Credit ratings, financial health, CEO changes, restructuring, store openings/closures
-- Neighborhood Analysis: Local demographics, residential development, population growth, household income
-- Economic Analysis: Employment rates, economic indicators, local business activity
-- Competitive Analysis: Nearby competitors, market saturation, similar retailers in area
-- Development Activity: New construction, zoning changes, multifamily developments, grand openings
-- Sector Trends: Industry-specific news and trends affecting the retail category
+Automated Research Workflow (Step-by-Step):
+1. TENANT SCREENING: Scrape news, SEC filings, earnings reports for tenant financials, credit ratings, expansion/contraction plans, lease renewal rates, brand strength
+2. LEASE ANALYSIS: Extract lease structure (NNN, FSG, Modified Gross), terms, rent roll, escalation clauses, expense pass-throughs
+3. MARKET BENCHMARK: Pull lease comps, cap rates, occupancy rates in the submarket from IPA Commercial, Boulder Group, CoStar
+4. DEMOGRAPHIC SCAN: Analyze census data, income levels, retail demand data, walkability scores, crime rates for the trade area
+5. ESG & ASSET REVIEW: Check for LEED, WELL, GRESB certifications; assess building class, age, condition, energy efficiency
+6. ECONOMIC ANALYSIS: Monitor local employment, consumer spending patterns, business activity
+7. COMPETITIVE LANDSCAPE: Identify nearby competitors, assess market saturation
+8. DEVELOPMENT ACTIVITY: Track new construction, zoning changes, multifamily projects, infrastructure improvements
+9. MACRO TRENDS: Monitor interest rates, cap rate trends, consumer behavior trends, retail sector health from Boulder Group, Numerator, Fed releases
+10. SYNTHESIS & SCORING: Aggregate findings into weighted scoring model (Tenant 30%, Location 30%, Asset 20%, Lease 10%, Macro 10%)
 
-Key Information Sources:
-- Company news and announcements
-- Credit rating agencies
-- Local economic development reports
-- Demographic databases
-- Real estate development news
-- Industry publications (RetailDive, CStoreDive, GroceryDive)
+Research Focus Areas (Critical Dimensions):
+- Tenant/Company Analysis: Credit ratings (investment grade preferred), financial health, brand strength, household penetration, CEO changes, restructuring, store openings/closures, lease renewal rates
+- Location Quality: Demographics, household income, age distribution, walkability scores, livability scores, crime rates, foot traffic, nearby anchors, accessibility
+- Market Benchmark: Lease comps, cap rates, cap rate trends, market lease rates, occupancy rates
+- Lease Structure: NNN vs. FSG vs. Modified Gross, lease duration, renewal options, rent escalations, expense pass-throughs, below-market rent potential
+- Asset Quality: Building class (A/B/C), age and condition, renovations, physical obsolescence
+- ESG Considerations: LEED, WELL, GRESB certifications, energy efficiency, ESG lease clauses, sustainability features
+- Neighborhood Analysis: Residential development, multifamily projects, population growth, permits, neighborhood characteristics
+- Economic Analysis: Employment rates, economic indicators, local business activity, consumer spending by income segment
+- Competitive Analysis: Nearby competitors, market saturation, similar retailers in area, competitive positioning
+- Development Activity: New construction, zoning changes, infrastructure improvements, grand openings
+- Sector Trends: Industry-specific news, retail category performance, consumer behavior trends (experiential, community-based)
+- Macro Trends: Interest rates, Federal Reserve policy, consumer sentiment, supply/demand balance
+
+Key Trusted Information Sources (Prioritize These):
+- Boulder Group: Net lease cap rate trends, market reports
+- IPA Commercial: Commercial real estate lease rates, market comps
+- GRESB: ESG certifications, walkability scores, livability metrics
+- Numerator: Consumer trends, brand performance, household penetration
+- SEC: Tenant financials, 10-K/10-Q filings, earnings reports
+- Credit rating agencies: Moody's, S&P, Fitch ratings
+- Census.gov: Demographics, population data
+- Local economic development agencies: Area economic indicators
+- Industry publications: RetailDive, CStoreDive, GroceryDive, National Real Estate Investor
+- Real estate analytics: CoStar (when available), offering memoranda
 - Zoning and planning department records
+- Company press releases and announcements
+
+Analytical Methods to Apply:
+- Time-series analysis: Track rent and cap rate trends over time
+- Peer benchmarking: Compare tenant and asset to industry peers
+- Sentiment analysis: Analyze news and earnings call transcripts
+- ESG compliance scoring: Rate certifications and sustainability features
+- Weighted scoring model: 30% tenant, 30% location, 20% asset, 10% lease, 10% macro
+
+Source Prioritization:
+- Prefer reports and data from the past 12 months for recency
+- Prioritize established, reliable sources (Boulder Group, IPA Commercial, GRESB, Numerator, SEC)
+- Verify data across multiple sources when possible
+- Weight quantitative data and statistics heavily
+
+Strategic Imperatives (Acquisition Criteria):
+- Anchor assets with top-performing, creditworthy tenants (investment grade) in growth sectors
+- Prioritize locations with strong demographic tailwinds, high walkability, community engagement
+- Secure assets with robust ESG credentials and favorable lease structures (NNN, long term, escalations)
+- Monitor macro-economic shifts (interest rates, consumer sentiment) to adjust underwriting
+- Seek below-market rents for upside potential
+- Focus on markets with positive demographic and economic trends
 """
 
     @staticmethod
