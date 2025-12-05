@@ -14,8 +14,8 @@
 html, body {
     /* Keep smooth scrolling */
     scroll-behavior: smooth;
-    /* Replace radial dark gray with animated multi-stop gradient */
-    background: linear-gradient(45deg, #1a1a2e, #08192f, #0f2351, #1a1a2e);
+    /* Open Box Software branded gradient - professional blues */
+    background: linear-gradient(45deg, #0f172a, #1e3a8a, #0c4a6e, #0f172a);
     background-size: 400% 400%;
     animation: gradientBG 20s ease infinite;
 }
@@ -66,7 +66,7 @@ body::before {
 }
 
 .gradient-text {
-    background-image: linear-gradient(to right, #2dd4bf, #0d9488);
+    background-image: linear-gradient(to right, #3b82f6, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -117,7 +117,7 @@ input:hover, input:focus, select:hover, select:focus {
 }
 
 .btn-primary {
-    background: linear-gradient(to right, #0d9488, #14b8a6);
+    background: linear-gradient(to right, #2563eb, #06b6d4);
     border: none;
     transition: all .3s ease-in-out;
     font-size: 1.1rem;
@@ -125,7 +125,7 @@ input:hover, input:focus, select:hover, select:focus {
     border-radius: 30px;
     min-width: 180px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
     font-weight: 600;
 }
 
@@ -142,7 +142,7 @@ input:hover, input:focus, select:hover, select:focus {
 
 .btn-action {
     background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(20, 184, 166, 0.5);
+    border: 1px solid rgba(37, 99, 235, 0.5);
 }
 
 .btn:hover {
@@ -168,7 +168,7 @@ footer {
     margin-top: 40px;
     background: rgba(18, 18, 18, 0.8);
     backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(20, 184, 166, 0.3);
+    border-top: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 footer p {
@@ -177,14 +177,14 @@ footer p {
 }
 
 footer a {
-    color: #2dd4bf;
+    color: #60a5fa;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 footer a:hover {
-    color: #14b8a6;
+    color: #3b82f6;
     text-decoration: underline;
 }
 
@@ -207,7 +207,7 @@ footer a:hover {
     font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
-    border-bottom: 2px solid rgba(20, 184, 166, 0.3);
+    border-bottom: 2px solid rgba(37, 99, 235, 0.3);
     padding-bottom: 0.8rem;
     display: flex;
     align-items: center;
@@ -224,7 +224,7 @@ footer a:hover {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     margin-right: 12px;
-    color: #14b8a6;
+    color: #3b82f6;
     font-size: 1.4rem;
 }
 
@@ -264,7 +264,7 @@ footer a:hover {
 }
 
 #output::-webkit-scrollbar-thumb {
-    background-color: #14b8a6;
+    background-color: #3b82f6;
     border-radius: 10px;
 }
 
@@ -286,7 +286,7 @@ footer a:hover {
 }
 
 #reportContainer a {
-    color: #2dd4bf;
+    color: #60a5fa;
     text-decoration: none;
 }
 
@@ -295,7 +295,7 @@ footer a:hover {
 }
 
 #reportContainer blockquote {
-    border-left: 3px solid #14b8a6;
+    border-left: 3px solid #3b82f6;
     padding-left: 15px;
     color: #B8B8B8;
     font-style: italic;
@@ -311,7 +311,7 @@ footer a:hover {
 }
 
 .tag {
-    background-color: #14b8a6;
+    background-color: #3b82f6;
     color: white;
     padding: 5px 10px;
     border-radius: 3px;
@@ -336,7 +336,7 @@ footer a:hover {
     backdrop-filter: blur(10px);
     padding: 8px 0;
     width: 100%;
-    border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.3);
     z-index: 100;
 }
 
@@ -377,8 +377,8 @@ footer a:hover {
     gap: 8px;
     padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(20, 184, 166, 0.2);
-    color: #2dd4bf;
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
     font-weight: 500;
     font-size: 0.9rem;
     cursor: pointer;
@@ -388,7 +388,7 @@ footer a:hover {
 }
 
 .top-history-button:hover {
-    background: rgba(20, 184, 166, 0.3);
+    background: rgba(37, 99, 235, 0.3);
     transform: translateY(-2px);
 }
 
@@ -403,8 +403,8 @@ footer a:hover {
     gap: 8px;
     padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(20, 184, 166, 0.2);
-    color: #2dd4bf;
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
     font-weight: 500;
     font-size: 0.9rem;
     cursor: pointer;
@@ -415,7 +415,7 @@ footer a:hover {
 }
 
 .top-websocket-button:hover {
-    background: rgba(20, 184, 166, 0.3);
+    background: rgba(37, 99, 235, 0.3);
     transform: translateY(-2px);
 }
 
@@ -458,7 +458,7 @@ footer a:hover {
 }
 
 .feature-panel::-webkit-scrollbar-thumb {
-    background-color: #14b8a6;
+    background-color: #3b82f6;
     border-radius: 10px;
 }
 
@@ -502,7 +502,7 @@ footer a:hover {
 
 /* Adjust card colors to match background better */
 .feature-card.primary {
-    border-left-color: rgba(20, 184, 166, 0.7);
+    border-left-color: rgba(37, 99, 235, 0.7);
 }
 
 .feature-card.success {
@@ -510,7 +510,7 @@ footer a:hover {
 }
 
 .feature-card.info {
-    border-left-color: rgba(20, 184, 166, 0.7);
+    border-left-color: rgba(37, 99, 235, 0.7);
 }
 
 .feature-card.warning {
@@ -552,7 +552,7 @@ footer a:hover {
 }
 
 .feature-card.primary .feature-icon {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
 
 .feature-card.success .feature-icon {
@@ -560,7 +560,7 @@ footer a:hover {
 }
 
 .feature-card.info .feature-icon {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
 
 .feature-card.warning .feature-icon {
@@ -662,24 +662,24 @@ footer a:hover {
 
 /* Button glow effect for feature cards interaction */
 .highlight-glow-button {
-    box-shadow: 0 0 25px 10px rgba(20, 184, 166, 0.7) !important;
-    border-color: rgba(20, 184, 166, 0.9) !important;
+    box-shadow: 0 0 25px 10px rgba(37, 99, 235, 0.7) !important;
+    border-color: rgba(37, 99, 235, 0.9) !important;
     transform: translateY(-3px) !important;
     transition: all 0.3s ease !important;
 }
 
 /* Intensify highlight glows for feature-panel interactions */
 .highlight-glow-container {
-    box-shadow: 0 0 30px 15px rgba(20, 184, 166, 0.6) !important;
-    border: 1px solid rgba(20, 184, 166, 0.8) !important;
+    box-shadow: 0 0 30px 15px rgba(37, 99, 235, 0.6) !important;
+    border: 1px solid rgba(37, 99, 235, 0.8) !important;
 }
 .highlight-glow-report_source,
 .highlight-glow-query_domains {
     box-shadow: 0 0 20px 10px rgba(78, 221, 152, 0.7) !important;
 }
 .highlight-glow-tone {
-    box-shadow: 0 0 20px 10px rgba(20, 184, 166, 0.7) !important;
-    border: 1px solid rgba(20, 184, 166, 0.8) !important;
+    box-shadow: 0 0 20px 10px rgba(37, 99, 235, 0.7) !important;
+    border: 1px solid rgba(37, 99, 235, 0.8) !important;
 }
 
 /* Ensure subtle transitions for all glows */
@@ -846,8 +846,8 @@ footer a:hover {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 3px solid rgba(20, 184, 166, 0.3);
-    border-top-color: #14b8a6;
+    border: 3px solid rgba(37, 99, 235, 0.3);
+    border-top-color: #3b82f6;
     vertical-align: middle;
     margin-right: 12px;
 }
@@ -863,7 +863,7 @@ footer a:hover {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     margin-right: 12px;
-    color: #14b8a6;
+    color: #3b82f6;
     font-size: 1.4rem;
 }
 
@@ -872,8 +872,8 @@ footer a:hover {
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    border: 2px solid #14b8a6;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.5);
+    border: 2px solid #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
 .agent-name {
@@ -953,7 +953,7 @@ footer a:hover {
     height: calc(100vh - 40px);
     background: rgba(18, 18, 24, 0.95);
     backdrop-filter: blur(10px);
-    border-left: 1px solid rgba(20, 184, 166, 0.3);
+    border-left: 1px solid rgba(37, 99, 235, 0.3);
     z-index: 1000;
     display: flex;
     flex-direction: column;
