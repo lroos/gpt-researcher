@@ -828,86 +828,6 @@ Assume that the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y'
         return prompt
 
 
-class GranitePromptFamily(PromptFamily):
-    """Prompts for IBM's granite models"""
-
-
-    def _get_granite_class(self) -> type[PromptFamily]:
-        """Get the right granite prompt family based on the version number"""
-        if "3.3" in self.cfg.smart_llm:
-            return Granite33PromptFamily
-        if "3" in self.cfg.smart_llm:
-            return Granite3PromptFamily
-        # If not a known version, return the default
-        return PromptFamily
-
-    def pretty_print_docs(self, *args, **kwargs) -> str:
-        return self._get_granite_class().pretty_print_docs(*args, **kwargs)
-
-    def join_local_web_documents(self, *args, **kwargs) -> str:
-        return self._get_granite_class().join_local_web_documents(*args, **kwargs)
-
-
-class Granite3PromptFamily(PromptFamily):
-    """Prompts for IBM's granite 3.X models (before 3.3)"""
-
-    _DOCUMENTS_PREFIX = "<|start_of_role|>documents<|end_of_role|>\n"
-    _DOCUMENTS_SUFFIX = "\n<|end_of_text|>"
-
-    @classmethod
-    def pretty_print_docs(cls, docs: list[Document], top_n: int | None = None) -> str:
-        if not docs:
-            return ""
-        all_documents = "\n\n".join([
-            f"Document {doc.metadata.get('source', i)}\n" + \
-            f"Title: {doc.metadata.get('title')}\n" + \
-            doc.page_content
-            for i, doc in enumerate(docs)
-            if top_n is None or i < top_n
-        ])
-        return "".join([cls._DOCUMENTS_PREFIX, all_documents, cls._DOCUMENTS_SUFFIX])
-
-    @classmethod
-    def join_local_web_documents(cls, docs_context: str | list, web_context: str | list) -> str:
-        """Joins local web documents using Granite's preferred format"""
-        if isinstance(docs_context, str) and docs_context.startswith(cls._DOCUMENTS_PREFIX):
-            docs_context = docs_context[len(cls._DOCUMENTS_PREFIX):]
-        if isinstance(web_context, str) and web_context.endswith(cls._DOCUMENTS_SUFFIX):
-            web_context = web_context[:-len(cls._DOCUMENTS_SUFFIX)]
-        all_documents = "\n\n".join([docs_context, web_context])
-        return "".join([cls._DOCUMENTS_PREFIX, all_documents, cls._DOCUMENTS_SUFFIX])
-
-
-class Granite33PromptFamily(PromptFamily):
-    """Prompts for IBM's granite 3.3 models"""
-
-    _DOCUMENT_TEMPLATE = """<|start_of_role|>document {{"document_id": "{document_id}"}}<|end_of_role|>
-{document_content}<|end_of_text|>
-"""
-
-    @staticmethod
-    def _get_content(doc: Document) -> str:
-        doc_content = doc.page_content
-        if title := doc.metadata.get("title"):
-            doc_content = f"Title: {title}\n{doc_content}"
-        return doc_content.strip()
-
-    @classmethod
-    def pretty_print_docs(cls, docs: list[Document], top_n: int | None = None) -> str:
-        return "\n".join([
-            cls._DOCUMENT_TEMPLATE.format(
-                document_id=doc.metadata.get("source", i),
-                document_content=cls._get_content(doc),
-            )
-            for i, doc in enumerate(docs)
-            if top_n is None or i < top_n
-        ])
-
-    @classmethod
-    def join_local_web_documents(cls, docs_context: str | list, web_context: str | list) -> str:
-        """Joins local web documents using Granite's preferred format"""
-        return "\n\n".join([docs_context, web_context])
-
 ## Factory ######################################################################
 
 # This is the function signature for the various prompt generator functions
@@ -953,11 +873,6 @@ def get_prompt_by_report_type(
 
 prompt_family_mapping = {
     PromptFamilyEnum.Default.value: PromptFamily,
-    PromptFamilyEnum.Granite.value: GranitePromptFamily,
-    PromptFamilyEnum.Granite3.value: Granite3PromptFamily,
-    PromptFamilyEnum.Granite31.value: Granite3PromptFamily,
-    PromptFamilyEnum.Granite32.value: Granite3PromptFamily,
-    PromptFamilyEnum.Granite33.value: Granite33PromptFamily,
 }
 
 
