@@ -2,21 +2,23 @@
 <html lang="en">
 
 <head>
-    <title>GPT Researcher</title>
-    <meta name="description" content="A research assistant powered by GPT-4">
+    <title>Open Box Software | AI-Powered Research Platform</title>
+    <meta name="description" content="Enterprise AI research solutions by Open Box Software - Intelligent automation for comprehensive research and analysis">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/site/styles.css" />
     <style>
         .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: auto;
+            height: 60px;
+            max-width: 250px;
+            border-radius: 0;
+            object-fit: contain;
         }
 
         .agent-name {
@@ -76,16 +78,13 @@
 <body>
     <!-- Navigation Buttons (moved from top bar) -->
     <div class="nav-buttons">
-        <div id="websocketPanelOpenBtn" class="top-websocket-button">
-            <i class="fas fa-network-wired"></i> Status
-        </div>
         <div id="historyPanelOpenBtn" class="top-history-button">
             <i class="fas fa-history"></i> History
         </div>
     </div>
 
-    <!-- WebSocket Status Panel -->
-    <div class="websocket-panel" id="websocketPanel">
+    <!-- WebSocket Status Panel (Hidden by default) -->
+    <div class="websocket-panel" id="websocketPanel" style="display: none;">
         <div class="websocket-panel-header">
             <h3><i class="fas fa-plug"></i> Connection Status</h3>
             <div class="websocket-panel-actions">
@@ -136,21 +135,20 @@
     <section class="landing">
         <div class="max-w-5xl mx-auto text-center">
             <h1 class="text-4xl font-extrabold mx-auto lg:text-7xl">
-                Say Goodbye to <br>
+                Intelligent Research<br>
                 <span
-                    style="background-image:linear-gradient(to right, #9867F0, #ED4E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hours
-                    of Research</span>
+                    style="background-image:linear-gradient(to right, #bcd727, #a8c120); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Powered by Open Box</span>
             </h1>
             <p class="max-w-6xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-                Say Hello to <b>GPT Researcher</b>, your AI mate for rapid insights and comprehensive research. <br>
-                GPT Researcher takes care of everything from accurate source gathering and organization of research results to generation of customized reports with citations.
+                <b>Open Box Software</b> delivers enterprise-grade AI research solutions. <br>
+                Our platform handles comprehensive research workflows - from intelligent source discovery to structured report generation with full citations.
             </p>
-            <a href="#form" class="btn btn-primary">Start Researching</a>
+            <a href="#form" class="btn btn-primary">Start Your Research</a>
         </div>
     </section>
 
     <main class="container" id="form">
-        <div class="agent-item"><img src="/static/gptr-logo.png" class="avatar" alt="Auto Agent"></div>
+        <div class="agent-item"><img src="/static/openbox-logo.svg" class="avatar" alt="Open Box Software"></div>
         <form method="POST" class="mt-3" id="researchForm">
             <div class="form-group">
                 <label for="task" class="agent-question">Enter concept name and address to research</label>
@@ -398,11 +396,11 @@
 
     <footer>
         <p>
-            <a target="_blank" href="https://gptr.dev">Homepage</a> |
-            <a target="_blank" href="https://github.com/assafelovic/gpt-researcher">GitHub</a> |
-            <a target="_blank" href="https://discord.gg/spBgZmm3Xe">Discord</a>
+            <a target="_blank" href="https://openboxsoftware.com">Open Box Software</a> |
+            <a target="_blank" href="https://openboxsoftware.com/about">About</a> |
+            <a target="_blank" href="https://openboxsoftware.com/contact">Contact</a>
         </p>
-        <p>GPT Researcher &copy; 2024</p>
+        <p>Open Box Software &copy; 2024 | Powered by AI Research Technology</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <script src="/site/scripts.js"></script>

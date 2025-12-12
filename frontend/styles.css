@@ -14,14 +14,15 @@
 html, body {
     /* Keep smooth scrolling */
     scroll-behavior: smooth;
-    /* Replace radial dark gray with animated multi-stop gradient */
-    background: linear-gradient(45deg, #1a1a2e, #08192f, #0f2351, #1a1a2e);
+    /* Open Box Software branded gradient - dark with lime accent */
+    background: linear-gradient(45deg, #1a1a1a, #0d0d0d, #1f1f1f, #1a1a1a);
     background-size: 400% 400%;
     animation: gradientBG 20s ease infinite;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 400;
     color: #fff;
     line-height: 1.6;
     background-color: #1e272e;
@@ -63,10 +64,11 @@ body::before {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 2rem;
+    letter-spacing: -0.02em;
 }
 
 .gradient-text {
-    background-image: linear-gradient(to right, #2dd4bf, #0d9488);
+    background-image: linear-gradient(to right, #bcd727, #a8c120);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -79,6 +81,7 @@ body::before {
     max-width: 1000px;
     padding: 0 25px 0 25px;
     margin: auto auto 2rem auto;
+    line-height: 1.8;
 }
 
 .landing-description {
@@ -86,10 +89,12 @@ body::before {
 }
 
 .container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(188, 215, 39, 0.1);
     transition: all .3s ease-in-out;
     margin: auto auto 180px auto;
 }
@@ -98,26 +103,29 @@ body::before {
     /* Uncomment this to enable hover zoom effect (transform scale effect).
         This is not recommended because it can be obnoxious on desktop, and straight up unusable on mobile. */
     /* transform: scale(1.01); */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(188, 215, 39, 0.2);
 }
 
 /* Glass-style inputs, selects, output areas */
 input, select, #output, #reportContainer {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
     transition: all .3s ease-in-out;
+    border-radius: 8px;
 }
 
 input:hover, input:focus, select:hover, select:focus {
-    background-color: #dfe4ea;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(188, 215, 39, 0.4);
+    box-shadow: 0 0 0 3px rgba(188, 215, 39, 0.1);
     transition: all 0.3s ease-in-out;
+    outline: none;
 }
 
 .btn-primary {
-    background: linear-gradient(to right, #0d9488, #14b8a6);
+    background: linear-gradient(to right, #bcd727, #a8c120);
     border: none;
     transition: all .3s ease-in-out;
     font-size: 1.1rem;
@@ -125,8 +133,9 @@ input:hover, input:focus, select:hover, select:focus {
     border-radius: 30px;
     min-width: 180px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 4px 15px rgba(188, 215, 39, 0.4);
     font-weight: 600;
+    color: #000;
 }
 
 .btn-secondary {
@@ -142,7 +151,7 @@ input:hover, input:focus, select:hover, select:focus {
 
 .btn-action {
     background: rgba(40, 40, 40, 0.8);
-    border: 1px solid rgba(20, 184, 166, 0.5);
+    border: 1px solid rgba(188, 215, 39, 0.5);
 }
 
 .btn:hover {
@@ -152,9 +161,11 @@ input:hover, input:focus, select:hover, select:focus {
 }
 
 .agent-question {
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    letter-spacing: -0.01em;
 }
 
 footer {
@@ -168,7 +179,7 @@ footer {
     margin-top: 40px;
     background: rgba(18, 18, 18, 0.8);
     backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(20, 184, 166, 0.3);
+    border-top: 1px solid rgba(188, 215, 39, 0.3);
 }
 
 footer p {
@@ -177,14 +188,14 @@ footer p {
 }
 
 footer a {
-    color: #2dd4bf;
+    color: #bcd727;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 footer a:hover {
-    color: #14b8a6;
+    color: #a8c120;
     text-decoration: underline;
 }
 
@@ -192,10 +203,11 @@ footer a:hover {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 25px;
-    background-color: rgba(20, 20, 28, 0.8);
+    background: linear-gradient(135deg, rgba(20, 20, 28, 0.9) 0%, rgba(20, 20, 28, 0.7) 100%);
     border-radius: 16px;
-    border: 1px solid rgba(100, 100, 130, 0.2);
+    border: 1px solid rgba(188, 215, 39, 0.15);
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .research-output-container, .report-container {
@@ -207,7 +219,7 @@ footer a:hover {
     font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
-    border-bottom: 2px solid rgba(20, 184, 166, 0.3);
+    border-bottom: 2px solid rgba(188, 215, 39, 0.3);
     padding-bottom: 0.8rem;
     display: flex;
     align-items: center;
@@ -224,7 +236,7 @@ footer a:hover {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     margin-right: 12px;
-    color: #14b8a6;
+    color: #bcd727;
     font-size: 1.4rem;
 }
 
@@ -264,7 +276,7 @@ footer a:hover {
 }
 
 #output::-webkit-scrollbar-thumb {
-    background-color: #14b8a6;
+    background-color: #bcd727;
     border-radius: 10px;
 }
 
@@ -286,7 +298,7 @@ footer a:hover {
 }
 
 #reportContainer a {
-    color: #2dd4bf;
+    color: #bcd727;
     text-decoration: none;
 }
 
@@ -295,7 +307,7 @@ footer a:hover {
 }
 
 #reportContainer blockquote {
-    border-left: 3px solid #14b8a6;
+    border-left: 3px solid #bcd727;
     padding-left: 15px;
     color: #B8B8B8;
     font-style: italic;
@@ -311,7 +323,7 @@ footer a:hover {
 }
 
 .tag {
-    background-color: #14b8a6;
+    background-color: #bcd727;
     color: white;
     padding: 5px 10px;
     border-radius: 3px;
@@ -336,7 +348,7 @@ footer a:hover {
     backdrop-filter: blur(10px);
     padding: 8px 0;
     width: 100%;
-    border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+    border-bottom: 1px solid rgba(188, 215, 39, 0.3);
     z-index: 100;
 }
 
@@ -377,8 +389,8 @@ footer a:hover {
     gap: 8px;
     padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(20, 184, 166, 0.2);
-    color: #2dd4bf;
+    background: rgba(188, 215, 39, 0.2);
+    color: #bcd727;
     font-weight: 500;
     font-size: 0.9rem;
     cursor: pointer;
@@ -388,7 +400,7 @@ footer a:hover {
 }
 
 .top-history-button:hover {
-    background: rgba(20, 184, 166, 0.3);
+    background: rgba(188, 215, 39, 0.3);
     transform: translateY(-2px);
 }
 
@@ -403,8 +415,8 @@ footer a:hover {
     gap: 8px;
     padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(20, 184, 166, 0.2);
-    color: #2dd4bf;
+    background: rgba(188, 215, 39, 0.2);
+    color: #bcd727;
     font-weight: 500;
     font-size: 0.9rem;
     cursor: pointer;
@@ -415,7 +427,7 @@ footer a:hover {
 }
 
 .top-websocket-button:hover {
-    background: rgba(20, 184, 166, 0.3);
+    background: rgba(188, 215, 39, 0.3);
     transform: translateY(-2px);
 }
 
@@ -458,7 +470,7 @@ footer a:hover {
 }
 
 .feature-panel::-webkit-scrollbar-thumb {
-    background-color: #14b8a6;
+    background-color: #bcd727;
     border-radius: 10px;
 }
 
@@ -502,7 +514,7 @@ footer a:hover {
 
 /* Adjust card colors to match background better */
 .feature-card.primary {
-    border-left-color: rgba(20, 184, 166, 0.7);
+    border-left-color: rgba(188, 215, 39, 0.7);
 }
 
 .feature-card.success {
@@ -510,7 +522,7 @@ footer a:hover {
 }
 
 .feature-card.info {
-    border-left-color: rgba(20, 184, 166, 0.7);
+    border-left-color: rgba(188, 215, 39, 0.7);
 }
 
 .feature-card.warning {
@@ -552,7 +564,7 @@ footer a:hover {
 }
 
 .feature-card.primary .feature-icon {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #bcd727, #bcd727);
 }
 
 .feature-card.success .feature-icon {
@@ -560,7 +572,7 @@ footer a:hover {
 }
 
 .feature-card.info .feature-icon {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #bcd727, #bcd727);
 }
 
 .feature-card.warning .feature-icon {
@@ -662,24 +674,24 @@ footer a:hover {
 
 /* Button glow effect for feature cards interaction */
 .highlight-glow-button {
-    box-shadow: 0 0 25px 10px rgba(20, 184, 166, 0.7) !important;
-    border-color: rgba(20, 184, 166, 0.9) !important;
+    box-shadow: 0 0 25px 10px rgba(188, 215, 39, 0.7) !important;
+    border-color: rgba(188, 215, 39, 0.9) !important;
     transform: translateY(-3px) !important;
     transition: all 0.3s ease !important;
 }
 
 /* Intensify highlight glows for feature-panel interactions */
 .highlight-glow-container {
-    box-shadow: 0 0 30px 15px rgba(20, 184, 166, 0.6) !important;
-    border: 1px solid rgba(20, 184, 166, 0.8) !important;
+    box-shadow: 0 0 30px 15px rgba(188, 215, 39, 0.6) !important;
+    border: 1px solid rgba(188, 215, 39, 0.8) !important;
 }
 .highlight-glow-report_source,
 .highlight-glow-query_domains {
     box-shadow: 0 0 20px 10px rgba(78, 221, 152, 0.7) !important;
 }
 .highlight-glow-tone {
-    box-shadow: 0 0 20px 10px rgba(20, 184, 166, 0.7) !important;
-    border: 1px solid rgba(20, 184, 166, 0.8) !important;
+    box-shadow: 0 0 20px 10px rgba(188, 215, 39, 0.7) !important;
+    border: 1px solid rgba(188, 215, 39, 0.8) !important;
 }
 
 /* Ensure subtle transitions for all glows */
@@ -846,8 +858,8 @@ footer a:hover {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 3px solid rgba(20, 184, 166, 0.3);
-    border-top-color: #14b8a6;
+    border: 3px solid rgba(188, 215, 39, 0.3);
+    border-top-color: #bcd727;
     vertical-align: middle;
     margin-right: 12px;
 }
@@ -863,17 +875,20 @@ footer a:hover {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     margin-right: 12px;
-    color: #14b8a6;
+    color: #bcd727;
     font-size: 1.4rem;
 }
 
 /* Add the styles from index.html */
 .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    border: 2px solid #14b8a6;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.5);
+    width: auto;
+    height: 60px;
+    max-width: 250px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    object-fit: contain;
 }
 
 .agent-name {
@@ -885,7 +900,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Hover effect to make panels reappear */
@@ -953,7 +968,7 @@ footer a:hover {
     height: calc(100vh - 40px);
     background: rgba(18, 18, 24, 0.95);
     backdrop-filter: blur(10px);
-    border-left: 1px solid rgba(20, 184, 166, 0.3);
+    border-left: 1px solid rgba(188, 215, 39, 0.3);
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -1987,15 +2002,16 @@ footer a:hover {
 #researchForm input[type="submit"] {
     display: block;
     margin: 2rem auto;
-    font-size: 1.2rem;
-    padding: 15px 40px;
+    font-size: 1.1rem;
+    padding: 14px 40px;
     min-width: 220px;
-    box-shadow: 0 6px 18px rgba(20, 184, 166, 0.4);
+    box-shadow: 0 4px 20px rgba(188, 215, 39, 0.4);
+    font-weight: 600;
 }
 
 #researchForm input[type="submit"]:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(20, 184, 166, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(188, 215, 39, 0.5);
 }
 
 @media (max-width: 768px) {
